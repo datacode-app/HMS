@@ -1,1 +1,1 @@
-[] create the project structure
+[x] create the project structure
