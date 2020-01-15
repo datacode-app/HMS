@@ -36,3 +36,8 @@ class Employee(models.Model):
         super(Employee, self).save(*args, **kwargs) 
     def __str__(self):
         return self.full_name
+class Token(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    token = models.CharField(max_length=48)
+    def __str__(self):
+        return self.user
