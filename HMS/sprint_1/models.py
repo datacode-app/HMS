@@ -25,17 +25,23 @@ class Income(models.Model):
 class Employee(models.Model):
     full_name = models.CharField(max_length=30)
     national_id = models.CharField(max_length=40)
-    date_hired = models.DateTimeField(default=timezone.now)
+    date_hired = models.DateTimeField(default=timezone.datetime.now)
     income = models.BigIntegerField()
     last_payment = models.DateTimeField()
     paid = models.BooleanField()
-    def save(self):
+
         #check that is the employee paid or not if not change a value in model
-        print(self.last_payment)
-        print(timezone.now-self.last_payment)
+    def save(self, *args, **kwargs): 
+        now = timezone.datetime.now()
+        ptime = self.last_payment
+        pdelta = timezone.datetime(ptime.year,ptime.month,ptime.day,ptime.hour,ptime.minute,ptime.microsecond)
+        diff = now - pdelta
+        print(diff.days)
         
-        """if self.last_payment - datetime.now()).days > 30:
-            self.paid = False"""
+        if diff.days > 30 :
+            self.paid = False
+            
+        super(Employee, self).save(*args, **kwargs) 
     def __str__(self):
         return self.full_name
     
