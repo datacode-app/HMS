@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include
-from HMS.sprint_1 import urls
+from sprint_1 import urls
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accountancy/',include("sprinit_1.urls"))
+    path('accountancy/',include("sprint_1.urls"))
 ]

@@ -30,4 +30,4 @@ def pay(request):
         emp.save() #update employee data
         return JsonResponse({"result":"payment successfully done!"},encoder=JSONEncoder)
     else:
-        return JsonResponse({"error":"permission denied",encoder=JSONEncoder})
+        return JsonResponse({"error":"permission denied"},encoder=JSONEncoder)

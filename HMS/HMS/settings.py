@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sprint_1'
+    'sprint_1.apps.Sprint1Config'
 ]
 
 MIDDLEWARE = [
